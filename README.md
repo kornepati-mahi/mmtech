@@ -168,14 +168,20 @@ deleting a record removes the old file.
 The React app is a static Vite build, so Vercel serves it directly.
 
 1. Import the repo at <https://github.com/kornepati-mahi/mmtech> in Vercel.
-2. `vercel.json` already sets:
-   - `installCommand`: `cd frontend && npm install`
-   - `buildCommand`: `cd frontend && npm run build`
-   - `outputDirectory`: `frontend/dist`
-   - SPA fallback so `/admin/login` and `/blog/some-slug` work on refresh
-3. **Replace the placeholder** `YOUR-PHP-HOST.example.com` in `vercel.json` with the URL of your
-   PHP API. The rewrites proxy `/backend/*` and `/uploads/*` to it, which keeps the browser on a
-   single origin so the PHP session cookie keeps working.
+2. `vercel.json` is committed **both** at the repository root and in `frontend/`, so the build works
+   whether Vercel's **Root Directory** is set to the repository root or to `frontend`. The commands
+   are written to work from either location:
+
+   ```sh
+   if [ -f frontend/package.json ]; then cd frontend; fi; npm install
+   if [ -f frontend/package.json ]; then cd frontend; fi; npm run build
+   ```
+
+   `outputDirectory` is `dist`. When the root is the repository root, a `postbuild` step copies
+   `frontend/dist` to `<root>/dist` so the output is found either way.
+3. **Replace the placeholder** `YOUR-PHP-HOST.example.com` in **both** `vercel.json` files with the
+   URL of your PHP API. The rewrites proxy `/backend/*` and `/uploads/*` to it, which keeps the
+   browser on a single origin so the PHP session cookie keeps working.
 
 If you prefer an absolute API URL instead of the proxy, set the environment variable in Vercel:
 
