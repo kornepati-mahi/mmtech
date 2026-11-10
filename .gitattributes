@@ -1,0 +1,19 @@
+# Normalise line endings so the repo behaves the same on every machine
+# and on Linux build servers (Vercel).
+* text=auto eol=lf
+
+*.php text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.sql text eol=lf
+*.md text eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary

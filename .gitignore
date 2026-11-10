@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build output
+dist/
+frontend/dist/
+
+# Local environment overrides (the committed .env only holds dev defaults)
+.env.local
+.env.*.local
+
+# Uploaded media (user content). Keep the folder guard, ignore the files.
+uploads/*
+!uploads/index.php
+!uploads/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+php_errors.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local tooling
+frontend/scripts/__snapshots__/

@@ -1,0 +1,464 @@
+# MM IT TECH LTD – Complete Full-Stack Website Development
+
+Act as a senior full-stack developer, UI/UX designer, software architect, and cybersecurity-focused web developer with 10+ years of experience.
+
+Build a complete, modern, premium, responsive, production-ready website for **MM IT Tech Ltd**, a professional IT solutions and technology company.
+
+## 1. Company Overview
+
+Company Name: MM IT Tech Ltd
+
+Company Description:
+
+"MM IT Tech Ltd is a premier technology and IT solutions provider dedicated to delivering reliable, scalable, and secure IT infrastructure for modern businesses. We specialize in proactive IT support, cloud services, and cybersecurity solutions designed to minimize downtime and maximize productivity. Our team ensures your technology works seamlessly so you can focus on growing your business."
+
+Main Services:
+- Managed IT Support
+- Cloud Services & Cloud Migration
+- Cybersecurity Solutions
+- IT Infrastructure Management
+- Network Security
+- Data Backup & Recovery
+- Server Management
+- IT Consulting
+- Business Technology Solutions
+
+## 2. Technology Stack
+
+Frontend:
+- React.js
+- Vite
+- React Router DOM
+- Tailwind CSS
+- Framer Motion
+- Lucide React Icons
+- Axios
+
+Backend:
+- Core PHP 8+
+- PHP REST API
+- MySQL Database
+- PDO with prepared statements
+- PHP Sessions for authentication
+
+Development Environment:
+- XAMPP
+- MySQL / phpMyAdmin
+- Apache Server
+
+Important:
+Do not use Node.js, Express.js, Firebase, Supabase, or Laravel for the backend.
+
+React.js must communicate with PHP APIs. All website data must be stored and retrieved from MySQL.
+
+## 3. Frontend Website Pages
+
+Create the following pages:
+
+### Home Page
+- Premium hero section with strong headline.
+- Company introduction.
+- Modern IT technology illustrations.
+- Our core services.
+- Why Choose MM IT Tech Ltd.
+- Business statistics.
+- Industries we serve.
+- Latest blog articles loaded dynamically from MySQL.
+- Client testimonials.
+- Contact CTA section.
+- Professional footer.
+
+Suggested hero heading:
+
+"Powering Your Business with Smarter IT Solutions."
+
+Subheading:
+
+"Reliable IT Support, Advanced Cloud Services, and Enterprise-Grade Cybersecurity to Keep Your Business Running Without Limits."
+
+Buttons:
+- Explore Our Services
+- Talk to Our Experts
+
+### About Us
+- Company overview.
+- Mission and vision.
+- Our values.
+- Our expertise.
+- Team members (admin manageable).
+- Why businesses trust us.
+
+### Services
+Create individual service detail pages for:
+- Managed IT Support
+- Cloud Solutions
+- Cybersecurity
+- IT Infrastructure
+- Network Management
+- Backup & Disaster Recovery
+- IT Consulting
+
+Each service should have a description, features, benefits, and contact CTA.
+
+### Blog
+- Display published blog posts from the database.
+- Blog categories.
+- Featured images.
+- Search functionality.
+- Individual blog detail pages.
+- Related articles.
+- SEO-friendly URLs.
+- Share buttons.
+
+### Contact Us
+Create a professional contact form with:
+- Full Name
+- Email Address
+- Phone Number
+- Company Name
+- Service Interested In
+- Subject
+- Message
+
+On submission:
+1. Validate all fields.
+2. Send the data to the PHP API.
+3. Store the submission in MySQL.
+4. Display a success message.
+5. Prevent duplicate or spam submissions.
+6. Make the enquiry immediately available in the admin dashboard.
+
+## 4. Complete Admin Dashboard
+
+Create a secure admin panel at:
+
+/admin/login
+
+After login, redirect to:
+
+/admin/dashboard
+
+Admin dashboard features:
+
+### Dashboard Overview
+Display:
+- Total website enquiries.
+- New enquiries.
+- Total blog posts.
+- Published blogs.
+- Draft blogs.
+- Total services.
+- Recent contact submissions.
+- Recent admin activity.
+
+### Blog Management (Full CRUD)
+
+Admin can:
+- Create blog posts.
+- Edit existing blog posts.
+- Delete blog posts.
+- Save posts as drafts.
+- Publish posts.
+- Schedule publishing.
+- Upload featured images.
+- Add blog categories.
+- Add tags.
+- Add SEO title.
+- Add SEO description.
+- Add URL slug.
+- Preview blog posts.
+- Manage published and unpublished posts.
+
+Blog fields:
+- Blog Title
+- Slug
+- Short Description
+- Full Content
+- Featured Image
+- Category
+- Tags
+- Author
+- SEO Title
+- SEO Description
+- Status (Draft / Published / Scheduled)
+- Published Date
+
+Only published blogs should appear publicly.
+
+### Contact Enquiry Management
+
+Whenever a visitor submits the contact form, save the information in MySQL and show it in the admin panel.
+
+Admin can:
+- View all enquiries.
+- View individual enquiry details.
+- Search enquiries.
+- Filter by date.
+- Filter by service.
+- Change status:
+  - New
+  - Contacted
+  - In Progress
+  - Converted
+  - Closed
+- Add internal notes.
+- Delete spam enquiries.
+- Export enquiries to CSV.
+- View contact submission date and time.
+
+Show a notification indicator for new enquiries.
+
+### Services Management
+Admin can:
+- Add services.
+- Edit services.
+- Delete services.
+- Upload service images.
+- Change service descriptions.
+- Add service features.
+- Enable or disable services.
+- Change service display order.
+
+### Testimonials Management
+Admin can:
+- Add testimonials.
+- Edit testimonials.
+- Delete testimonials.
+- Upload client photos.
+- Manage ratings.
+- Publish or hide testimonials.
+
+### Website Settings
+
+Admin can dynamically update:
+- Company name.
+- Company logo.
+- Favicon.
+- Company description.
+- Contact email.
+- Phone number.
+- Office address.
+- Social media links.
+- Footer content.
+- Homepage hero title.
+- Homepage hero description.
+- CTA text.
+- SEO settings.
+
+### Admin User Management
+- Secure admin login.
+- Change password.
+- Create additional admin accounts.
+- Manage admin roles.
+- Logout.
+- Session expiration.
+
+## 5. Database Design
+
+Create a MySQL database named:
+
+mm_it_tech_db
+
+Create the following tables:
+
+1. admins
+2. admin_roles
+3. blog_posts
+4. blog_categories
+5. blog_tags
+6. blog_post_tags
+7. contact_submissions
+8. enquiry_notes
+9. services
+10. testimonials
+11. website_settings
+12. media_uploads
+13. admin_activity_logs
+
+Use proper:
+- Primary keys.
+- Foreign keys.
+- Indexes.
+- Timestamps.
+- Relationships.
+- Unique constraints.
+
+Provide a complete SQL installation file.
+
+## 6. PHP Backend API
+
+Create organized PHP REST APIs.
+
+Example API endpoints:
+
+Authentication:
+POST /api/auth/login.php
+POST /api/auth/logout.php
+GET /api/auth/me.php
+POST /api/auth/change-password.php
+
+Blogs:
+GET /api/blogs/list.php
+GET /api/blogs/details.php
+POST /api/blogs/create.php
+POST /api/blogs/update.php
+POST /api/blogs/delete.php
+
+Contact:
+POST /api/contact/submit.php
+GET /api/contact/list.php
+GET /api/contact/details.php
+POST /api/contact/update-status.php
+POST /api/contact/add-note.php
+GET /api/contact/export.php
+
+Services:
+GET /api/services/list.php
+POST /api/services/create.php
+POST /api/services/update.php
+POST /api/services/delete.php
+
+Testimonials:
+GET /api/testimonials/list.php
+POST /api/testimonials/create.php
+POST /api/testimonials/update.php
+POST /api/testimonials/delete.php
+
+Settings:
+GET /api/settings/get.php
+POST /api/settings/update.php
+
+Protect all admin-only endpoints with authentication and authorization.
+
+## 7. UI/UX Design Requirements
+
+Design style:
+- Premium enterprise IT company.
+- Modern technology aesthetic.
+- Clean and professional layout.
+- Corporate design.
+- Smooth animations.
+- Responsive layouts.
+- Excellent typography.
+- Attractive service cards.
+- Modern dashboard interface.
+
+Suggested color palette:
+- Primary: Deep Navy Blue (#0B1220)
+- Secondary: Blue (#2563EB)
+- Accent: Cyan (#06B6D4)
+- Background: White (#FFFFFF)
+- Light Background: (#F5F7FB)
+- Text: (#172033)
+
+Use modern technology illustrations, subtle gradients, professional icons, and clean visual hierarchy.
+
+Avoid:
+- Generic templates.
+- Excessive animations.
+- Cartoon-style illustrations.
+- Cluttered layouts.
+- Unnecessary visual effects.
+
+## 8. Security Requirements
+
+Implement:
+- Password hashing using password_hash().
+- Password verification using password_verify().
+- PDO prepared statements.
+- CSRF protection for admin actions.
+- Secure PHP session configuration.
+- Input validation and sanitization.
+- File upload validation.
+- MIME type verification.
+- File size limits.
+- Randomized uploaded filenames.
+- SQL injection protection.
+- XSS protection.
+- Login rate limiting.
+- Authentication and role-based authorization.
+- Secure logout.
+- Server-side validation for every form.
+
+Never expose database credentials or sensitive information in React frontend code.
+
+## 9. Project Folder Structure
+
+Create a clean structure:
+
+mm-it-tech/
+  frontend/
+    src/
+      components/
+      pages/
+      layouts/
+      admin/
+      services/
+      hooks/
+      assets/
+      App.jsx
+      main.jsx
+  backend/
+    config/
+    middleware/
+    api/
+      auth/
+      blogs/
+      contact/
+      services/
+      testimonials/
+      settings/
+    uploads/
+    helpers/
+  database/
+    mm_it_tech.sql
+  README.md
+
+## 10. Deployment & Installation
+
+Make the website compatible with local XAMPP development.
+
+Frontend:
+- npm install
+- npm run dev
+- npm run build
+
+Backend:
+- Run PHP APIs using XAMPP Apache.
+- Configure MySQL credentials.
+- Import mm_it_tech.sql through phpMyAdmin.
+
+Provide:
+- Complete .env.example or frontend API configuration.
+- PHP database configuration example.
+- Database installation instructions.
+- Admin account creation instructions.
+- Production deployment instructions.
+- React build deployment instructions.
+- API URL configuration.
+
+## 11. Final Requirements
+
+Build a fully functional website, not just a frontend template.
+
+Important functionality:
+- Admin can publish blogs without editing code.
+- Published blogs automatically appear on the public website.
+- Website visitors can submit contact enquiries.
+- Every enquiry is stored in MySQL.
+- Admin can view and manage all enquiries.
+- Services and testimonials are dynamically managed.
+- Website content can be changed from the admin dashboard.
+- All pages must work on mobile, tablet, and desktop.
+
+Do not use dummy data for final functionality.
+
+Do not leave buttons non-functional.
+
+Do not create fake API responses.
+
+Test every CRUD operation and frontend-backend connection.
+
+First inspect the project directory. If a project already exists, preserve working code and integrate the new features instead of unnecessarily rebuilding everything.
+
+Develop the project module by module, test each module, and ensure the final application is ready for deployment.

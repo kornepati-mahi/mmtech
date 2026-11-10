@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    {
+      "source": "/backend/:path*",
+      "destination": "https://mmtech-api.example.com/backend/:path*"
+    },
+    {
+      "source": "/uploads/:path*",
+      "destination": "https://mmtech-api.example.com/uploads/:path*"
+    },
+    {
+      "source": "/((?!backend|uploads).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
