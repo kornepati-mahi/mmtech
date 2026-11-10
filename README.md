@@ -162,7 +162,44 @@ deleting a record removes the old file.
 - Media library / bulk upload
 - Newsletter and enquiry export (CSV)
 
-## 8) Development helpers
+## 8) Deployment
+
+### Frontend on Vercel
+The React app is a static Vite build, so Vercel serves it directly.
+
+1. Import the repo at <https://github.com/kornepati-mahi/mmtech> in Vercel.
+2. `vercel.json` already sets:
+   - `installCommand`: `cd frontend && npm install`
+   - `buildCommand`: `cd frontend && npm run build`
+   - `outputDirectory`: `frontend/dist`
+   - SPA fallback so `/admin/login` and `/blog/some-slug` work on refresh
+3. **Replace the placeholder** `YOUR-PHP-HOST.example.com` in `vercel.json` with the URL of your
+   PHP API. The rewrites proxy `/backend/*` and `/uploads/*` to it, which keeps the browser on a
+   single origin so the PHP session cookie keeps working.
+
+If you prefer an absolute API URL instead of the proxy, set the environment variable in Vercel:
+
+```
+VITE_API_BASE_URL=https://your-php-host.example.com/backend/api
+```
+
+> Cross-origin is possible — `cors_headers()` echoes the request origin — but the admin session
+> cookie is `SameSite=Lax`, so the proxy (same origin) is the recommended setup.
+
+### PHP + MySQL backend
+**Vercel cannot run PHP or MySQL.** The API needs a host that supports PHP 8 and MySQL:
+
+| Option | Notes |
+|---|---|
+| Shared cPanel hosting | Fits this project as-is (it was designed for XAMPP/cPanel) |
+| Railway / Render / Fly.io | Add a `Dockerfile` with PHP-FPM + MySQL |
+| Your own machine | Use a tunnel (Cloudflare Tunnel, ngrok) and point the rewrite at it |
+
+Copy the project to the PHP host, import `database/mm_it_tech.sql`, and set the database
+credentials in `backend/config/database.php` (or via the `DB_HOST`, `DB_NAME`, `DB_USER`,
+`DB_PASS` environment variables).
+
+## 9) Development helpers
 `frontend/scripts/` contains small CDP-based tools used to verify the UI:
 
 ```bash
